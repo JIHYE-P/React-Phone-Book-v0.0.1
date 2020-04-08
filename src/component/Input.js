@@ -1,17 +1,22 @@
 import React from 'react'
-import { withFormContext } from './FormContext'
+import styled from 'styled-components'
+import { withFormContext } from './withFormContext'
 
-const Input = ({type, label, name, invalid, setInvalid, validate, feedback}) => {
-  return <>
+const Filed = styled.div`
+  background-color: #fff;
+` 
+
+const Input = ({type, name, label, invalid, setInvalid, validate, feedback}) => {
+  return <Filed>
     <label htmlFor={name}>{label}</label>
-    <input 
+    <input
       type={type}
       name={name}
-      id={label}
+      id={name}
       onBlur={({target}) => setInvalid(!validate(target.value))}
     />
     {invalid && <div>{feedback}</div>}
-  </>
+  </Filed>
 }
 
 export default withFormContext(Input)
