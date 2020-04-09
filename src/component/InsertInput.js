@@ -14,6 +14,7 @@ const Input = ({type, name, label, invalid, setInvalid, validate, feedback}) => 
       name={name}
       id={name}
       onBlur={({target}) => setInvalid(!validate(target.value))}
+      autoComplete="off"
     />
     {invalid && <div>{feedback}</div>}
   </Filed>
