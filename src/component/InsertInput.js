@@ -13,7 +13,7 @@ const Input = ({type, name, label, invalid, setInvalid, validate, feedback}) => 
       type={type}
       name={name}
       id={name}
-      onBlur={({target}) => setInvalid(!validate(target.value))}
+      onBlur={({target}) => setInvalid(!validate(target))}
       autoComplete="off"
     />
     {invalid && <div>{feedback}</div>}

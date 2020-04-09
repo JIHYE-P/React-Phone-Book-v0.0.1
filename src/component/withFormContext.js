@@ -34,15 +34,15 @@ export const withFormContext = WrapperComponents => props => {
       {
         ({state, setState, value, setValue}) => {
           const validate = props.validate 
-          ? (targetValue) => {
-            const valid = props.validate(targetValue)
+          ? (target) => {
+            const valid = Boolean(props.validate(target))
             setState({[props.name] : valid ? true : setInvalid})
-            setValue(({[props.name] : targetValue}))
+            setValue(({[props.name] : target.value}))
             return valid
           }
           : () => null
           !(props.name in state) && validate('')
-          
+
           return <WrapperComponents 
             {...props}
             validate={validate}

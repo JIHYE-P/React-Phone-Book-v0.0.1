@@ -14,14 +14,14 @@ function App() {
             label="이름"
             name="name"
             feedback="이름를 입력하세요."
-            validate={(value) => Boolean(value.length)}
+            validate={(target) => target.value}
           />
           <Input
             type="text"
             label="연락처"
             name="phone"
             feedback="연락처를 입력하세요."
-            validate={(value) => Boolean(value.length)}
+            validate={(target) => target.value}
           />
           <Button />
         </form>
